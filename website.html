@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wana Digital - Jasa Pembuatan Website Profesional</title>
+    <!-- Font & Icon Eksternal yang Ringan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="shortcut icon" href="https://websitepro.my.id/assets/images/favicon.png" type="image/png" />
+
+    <style>
+        /* --- ROOT VARIABLES (Palet Warna Wana Digital) --- */
+        :root {
+            --primary-gradient: linear-gradient(135deg, #0A192F 0%, #00B4D8 100%);
+            --dark-blue: #0A192F;
+            --cyan: #00B4D8;
+            --cyan-hover: #0096B4;
+            --black: #0F172A;
+            --dark-gray: #1E293B;
+            --light-gray: #F8FAFC;
+            --white: #FFFFFF;
+            --text-dark: #334155;
+            --text-light: #94A3B8;
+            --transition: all 0.3s ease;
+        }
+
+        /* --- BASE STYLES --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        li {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--dark-blue);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .section-title p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 28px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background: var(--cyan);
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(0, 180, 216, 0.4);
+        }
+
+        .btn-primary:hover {
+            background: var(--cyan-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 180, 216, 0.6);
+        }
+
+        .btn-whatsapp {
+            background: #25D366;
+            color: var(--white);
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.4);
+        }
+
+        .btn-whatsapp:hover {
+            background: #20BA5A;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background: var(--white);
+            color: var(--dark-blue);
+            transform: translateY(-2px);
+        }
+
+        /* --- HEADER & NAVBAR --- */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+            z-index: 1000;
+            transition: var(--transition);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark-blue);
+            font-size: 1rem;
+        }
+
+        .nav-link:hover, .nav-link.active {
+            color: var(--cyan);
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: var(--dark-blue);
+            cursor: pointer;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            padding: 180px 0 100px 0;
+            background: var(--primary-gradient);
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80') center/cover no-repeat;
+            opacity: 0.1;
+            mix-blend-mode: overlay;
+        }
+
+        .hero-wrapper {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            align-items: center;
+            gap: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-content h1 span {
+            color: var(--cyan);
+            background: linear-gradient(to right, #00B4D8, #85E3FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 35px;
+            color: #E2E8F0;
+            max-width: 600px;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .hero-circle {
+            width: 350px;
+            height: 350px;
+            background: linear-gradient(45deg, rgba(0,180,216,0.2), rgba(255,255,255,0.05));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pulse 4s infinite alternate;
+        }
+
+        .hero-circle i {
+            font-size: 8rem;
+            color: var(--cyan);
+            filter: drop-shadow(0 0 20px rgba(0,180,216,0.5));
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1) rotate(0deg); }
+            100% { transform: scale(1.05) rotate(10deg); }
+        }
+
+        /* --- SERVICES SECTION --- */
+        .services {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.03);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.08);
+            border-color: rgba(0, 180, 216, 0.2);
+        }
+
+        .service-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--cyan);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.8rem;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-icon {
+            background: var(--cyan);
+            color: var(--white);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        /* --- PORTFOLIO SECTION --- */
+        .portfolio {
+            padding: 100px 0;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            border: 1px solid #EDF2F7;
+            transition: var(--transition);
+        }
+
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+        }
+
+        .portfolio-img {
+            height: 220px;
+            background: var(--primary-gradient);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+            font-size: 3rem;
+            position: relative;
+        }
+
+        .portfolio-img::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(10, 25, 47, 0.4);
+        }
+
+        .portfolio-img span {
+            position: relative;
+            z-index: 2;
+            font-weight: 700;
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .portfolio-info {
+            padding: 25px;
+        }
+
+        .portfolio-info .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(0, 180, 216, 0.1);
+            color: var(--cyan);
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .portfolio-info h3 {
+            font-size: 1.3rem;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .portfolio-info p {
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .portfolio-link {
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--cyan);
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .portfolio-link:hover {
+            gap: 10px;
+        }
+
+        /* --- TESTIMONIALS SECTION --- */
+        .testimonials {
+            padding: 100px 0;
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .testimonials .section-title h2 {
+            color: var(--white);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .testimonial-card {
+            background: var(--dark-gray);
+            padding: 40px;
+            border-radius: 20px;
+            position: relative;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .quote-icon {
+            position: absolute;
+            top: 30px;
+            right: 40px;
+            font-size: 2.5rem;
+            color: rgba(0, 180, 216, 0.15);
+        }
+
+        .stars {
+            color: #FFC107;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+        }
+
+        .testimonial-card p {
+            color: #E2E8F0;
+            font-size: 1rem;
+            margin-bottom: 25px;
+            font-style: italic;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--cyan);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .client-details h4 {
+            font-weight: 700;
+            font-size: 1rem;
+        }
+
+        .client-details span {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* --- PRICING SECTION --- */
+        .pricing {
+            padding: 100px 0;
+            background-color: var(--light-gray);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            align-items: center;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            border: 1px solid #EDF2F7;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .pricing-card.featured {
+            background: var(--dark-blue);
+            color: var(--white);
+            border: 2px solid var(--cyan);
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(10, 25, 47, 0.15);
+        }
+
+        .pricing-card.featured .pricing-title {
+            color: var(--cyan);
+        }
+
+        .pricing-card.featured h2 {
+            color: var(--white);
+        }
+
+        .pricing-card.featured li {
+            color: #E2E8F0;
+        }
+
+        .badge {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            background: var(--cyan);
+            color: var(--white);
+            padding: 6px 16px;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .pricing-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .pricing-card h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .pricing-card h2 span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+
+        .pricing-card p {
+            font-size: 0.95rem;
+            margin-bottom: 30px;
+        }
+
+        .pricing-features {
+            margin-bottom: 40px;
+        }
+
+        .pricing-features li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.95rem;
+        }
+
+        .pricing-features li i {
+            color: #25D366;
+        }
+
+        .pricing-card .btn {
+            width: 100%;
+            justify-content: center;
+        }
+
+        /* --- CTA SECTION --- */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--primary-gradient);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-content h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .cta-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+            color: #E2E8F0;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: var(--black);
+            color: var(--white);
+            padding: 80px 0 30px 0;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr 1fr;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+
+        .footer-about h3 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-about h3 span {
+            color: var(--cyan);
+        }
+
+        .footer-about p {
+            color: #94A3B8;
+            margin-bottom: 25px;
+            font-size: 0.95rem;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-icons a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--white);
+        }
+
+        .social-icons a:hover {
+            background: var(--cyan);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-links h4::after, .footer-contact h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 40px;
+            height: 2px;
+            background: var(--cyan);
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a {
+            color: #94A3B8;
+            font-size: 0.95rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--cyan);
+            padding-left: 5px;
+        }
+
+        .footer-contact li {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            color: #94A3B8;
+            font-size: 0.95rem;
+            align-items: flex-start;
+        }
+
+        .footer-contact li i {
+            color: var(--cyan);
+            margin-top: 4px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            color: #64748B;
+            font-size: 0.9rem;
+        }
+
+        /* --- FLOATING WHATSAPP BUTTON --- */
+        .floating-wa {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 999;
+            transition: var(--transition);
+        }
+
+        .floating-wa:hover {
+            transform: scale(1.1);
+            background: #20BA5A;
+        }
+
+        /* --- RESPONSIVE STYLES --- */
+        @media (max-width: 992px) {
+            .hero-wrapper {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-content p {
+                margin: 0 auto 35px auto;
+            }
+            .hero-btns {
+                justify-content: center;
+            }
+            .hero-visual {
+                display: none; /* Hide visual on mobile for speed and clarity */
+            }
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--white);
+                flex-direction: column;
+                padding: 40px 0;
+                transition: var(--transition);
+                box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+                align-items: center;
+            }
+            .nav-menu.active {
+                left: 0;
+            }
+            .menu-toggle {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/6283180296984?text=Halo%20Wana%20Digital,%20saya%20tertarik%20dengan%20jasa%20pembuatan%20website" class="floating-wa" target="_blank" aria-label="Hubungi kami via WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container navbar">
+            <a href="https://websitepro.my.id" class="logo">
+                <img src="https://websitepro.my.id/assets/images/logo/logo.png" alt="Wana Digital Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <span style="display:none;">Wana Digital</span>
+                <span>Wana Digital</span>
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="https://websitepro.my.id" class="nav-link active">Home</a></li>
+                <li><a href="#layanan" class="nav-link">Layanan</a></li>
+                <li><a href="#portofolio" class="nav-link">Portofolio</a></li>
+                <li><a href="#harga" class="nav-link">Harga</a></li>
+                <li><a href="#kontak" class="nav-link">Kontak</a></li>
+                <li><a href="https://wa.me/6283180296984?text=Halo%20Wana%20Digital" class="btn btn-whatsapp" style="padding: 10px 20px; font-size: 0.9rem;" target="_blank"><i class="fab fa-whatsapp"></i> Konsultasi Gratis</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero">
+        <div class="container hero-wrapper">
+            <div class="hero-content">
+                <h1>Dari Lokal ke <span>Profesional</span></h1>
+                <p>Kami membantu bisnis lokal, UMKM, dan perusahaan di Indonesia berkembang pesat di era digital melalui pembuatan website eksklusif, sistem terintegrasi, dan strategi pertumbuhan digital yang tepercaya.</p>
+                <div class="hero-btns">
+                    <a href="https://wa.me/6283180296984?text=Halo%20Wana%20Digital,%20saya%20ingin%20buat%20website" class="btn btn-primary" target="_blank">Mulai Projek Anda <i class="fas fa-arrow-right"></i></a>
+                    <a href="#portofolio" class="btn btn-outline">Lihat Portofolio</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="hero-circle">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="layanan">
+        <div class="container">
+            <div class="section-title">
+                <h2>Layanan Solusi Digital Kami</h2>
+                <p>Segala yang Anda butuhkan untuk membangun performa bisnis online yang kredibel dan menghasilkan penjualan tinggi.</p>
+            </div>
+            <div class="services-grid">
+                <!-- Layanan 1 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-globe"></i></div>
+                    <h3>Website Development</h3>
+                    <p>Pembuatan website Company Profile, Toko Online, Landing Page yang responsif, cepat, modern, dan dioptimalkan untuk konversi penjualan.</p>
+                </div>
+                <!-- Layanan 2 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>Aplikasi Sistem</h3>
+                    <p>Pengembangan aplikasi berbasis web & mobile kustom yang dirancang khusus untuk mempermudah operasional unik bisnis Anda.</p>
+                </div>
+                <!-- Layanan 3 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-cogs"></i></div>
+                    <h3>Sistem ERP</h3>
+                    <p>Integrasi sistem perencanaan sumber daya perusahaan (ERP) untuk efisiensi manajemen keuangan, stok, HR, hingga rantai pasok.</p>
+                </div>
+                <!-- Layanan 4 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                    <h3>SEO Optimization</h3>
+                    <p>Optimasi mesin pencari agar bisnis Anda mudah ditemukan pelanggan potensial di halaman pertama Google tanpa iklan berbayar.</p>
+                </div>
+                <!-- Layanan 5 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Layanan perawatan rutin, backup data, proteksi keamanan, dan bantuan teknis 24/7 agar website Anda selalu online prima.</p>
+                </div>
+                <!-- Layanan 6 -->
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-tools"></i></div>
+                    <h3>Hardware and software</h3>
+                    <p>Layanan penyediaan jaringan, hardware dan perangkat lunak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO SECTION -->
+    <section class="portfolio" id="portofolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Studi Kasus & Portofolio</h2>
+                <p>Beberapa bukti nyata dari komitmen kami dalam mentransformasi bisnis lokal mitra kami menjadi platform digital profesional.</p>
+            </div>
+            <div class="portfolio-grid">
+                <!-- Project 1 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img"><span>montirmotor.com</span></div>
+                    <div class="portfolio-info">
+                        <span class="tag">Sistem Aplikasi Jasa</span>
+                        <h3>Montir Motor</h3>
+                        <p>Platform booking servis motor online dengan manajemen teknisi berkala berbasis koordinat lokasi.</p>
+                        <a href="http://montirmotor.com" target="_blank" class="portfolio-link">Kunjungi Website <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Project 2 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img"><span>travelumrohplus.com</span></div>
+                    <div class="portfolio-info">
+                        <span class="tag">Website Perusahaan</span>
+                        <h3>Travel Umroh Plus</h3>
+                        <p>Website agen perjalanan umroh eksklusif dengan sistem jadwal keberangkatan terintegrasi & pemesanan paket.</p>
+                        <a href="http://travelumrohplus.com" target="_blank" class="portfolio-link">Kunjungi Website <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Project 3 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img"><span>falaheducation.web.id</span></div>
+                    <div class="portfolio-info">
+                        <span class="tag">Portal Pendidikan</span>
+                        <h3>Falah Education</h3>
+                        <p>Sistem manajemen pembelajaran daring (LMS) dan portal informasi akademis institusi pendidikan formal.</p>
+                        <a href="http://falaheducation.web.id" target="_blank" class="portfolio-link">Kunjungi Website <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Project 4 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img"><span>surgalaundry.com</span></div>
+                    <div class="portfolio-info">
+                        <span class="tag">ERP & Aplikasi Kasir</span>
+                        <h3>Surga Laundry</h3>
+                        <p>Aplikasi kasir multi-outlet dengan pelacakan status pesanan laundry real-time untuk konsumen.</p>
+                        <a href="http://surgalaundry.com" target="_blank" class="portfolio-link">Kunjungi Website <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img"><span>chefsncoffee.web.id</span></div>
+                    <div class="portfolio-info">
+                        <span class="tag">E-Commerce & Branding</span>
+                        <h3>Chefs n Coffee</h3>
+                        <p>Toko online katalog produk premium biji kopi nusantara dan menu restoran berfitur pesan antar otomatis.</p>
+                        <a href="http://chefsncoffee.web.id" target="_blank" class="portfolio-link">Kunjungi Website <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+                <!-- Project 5 -->
+                <div class="portfolio-card">
+                    <div class="portfolio-img"><span>szakat.id</span></div>
+                    <div class="portfolio-info">
+                        <span class="tag">Akuntansi Zakat</span>
+                        <h3>Sistem Informasi Zakat</h3>
+                        <p>Aplikasi akuntansi berbasis web untuk layanan zakat infaq dan sadaqah.</p>
+                        <a href="http://szakat.id" target="_blank" class="portfolio-link">Kunjungi Website <i class="fas fa-external-link-alt"></i></a>
+                    </div>
+                </div>
+			</div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Apa Kata Mitra Bisnis Kami?</h2>
+                <p>Kisah kepuasan nyata dari pemilik bisnis yang sukses go-digital bersama Wana Digital.</p>
+            </div>
+            <div class="testimonial-grid">
+                <!-- Testi 1 -->
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Dulu usaha laundry saya hanya dikenal warga setempat. Setelah dibuatkan website dan sistem kasir oleh Wana Digital, omzet naik karena orderan masuk dari luar wilayah!"</p>
+                    <div class="client-info">
+                        <div class="client-avatar">E</div>
+                        <div class="client-details">
+                            <h4>Owner</h4>
+                            <span>Surgalaundry.com</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Testi 2 -->
+                <div class="testimonial-card">
+                    <i class="fas fa-quote-right quote-icon"></i>
+                    <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p>"Desain website travel kami sekarang sangat mewah dan tepercaya. Calon jemaah tidak ragu lagi bertransaksi secara online karena sistem informasinya sangat transparan."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">P</div>
+                        <div class="client-details">
+                            <h4>CEO</h4>
+                            <span>Travelumrohplus.com</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SECTION -->
+    <section class="pricing" id="harga">
+        <div class="container">
+            <div class="section-title">
+                <h2>Investasi Paket Layanan Sesuai Kebutuhan</h2>
+                <p>Pilih skema harga terbaik dengan transparansi fitur tinggi tanpa biaya tersembunyi demi akselerasi bisnis Anda.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Paket 1 -->
+                <div class="pricing-card">
+                    <div class="pricing-title">Lokal Go Digital</div>
+                    <h2>Rp 1 jt<span>/Mulai Dari</span></h2>
+                    <p>Sangat cocok untuk UMKM, toko lokal, atau personal brand yang ingin mulai membangun reputasi digital profesional.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Desain Landing Page Premium</li>
+                        <li><i class="fas fa-check-circle"></i> Domain .com / .my.id (1 Tahun)</li>
+                        <li><i class="fas fa-check-circle"></i> Integrasi Chat WhatsApp Direct</li>
+                        <li><i class="fas fa-check-circle"></i> Gratis SEO Dasar</li>
+                        <li><i class="fas fa-check-circle"></i> Perawatan Bulanan Ringan</li>
+                    </ul>
+                    <a href="https://wa.me/6283180296984?text=Halo%20Wana%20Digital,%20saya%20tertarik%20paket%20Lokal%20Go%20Digital" class="btn btn-primary" style="background:var(--dark-blue);" target="_blank">Pilih Paket</a>
+                </div>
+                <!-- Paket 2 (Featured) -->
+                <div class="pricing-card featured">
+                    <div class="badge">Terpopuler</div>
+                    <div class="pricing-title">Profesional Skala Bisnis</div>
+                    <h2>Rp 10 jt<span>/Mulai Dari</span></h2>
+                    <p>Sempurna untuk perusahaan menengah, korporasi lokal, dan bisnis yang membutuhkan integrasi sistem manajemen.</p>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check-circle"></i> Desain Website Multi-halaman Custom</li>
+                        <li><i class="fas fa-check-circle"></i> Domain & Hosting Kecepatan Tinggi</li>
+                        <li><i class="fas fa-check-circle"></i> Integrasi Fitur Sistem / ERP Dasar</li>
+                        <li><i class="fas fa-check-circle"></i> Full SEO Optimization (Halaman 1 Google)</li>
+                        <li><i class="fas fa-check-circle"></i> Prioritas Support & Pemeliharaan 24/7</li>
+                    </ul>
+                    <a href="https://wa.me/6283180296984?text=Halo%20Wana%20Digital,%20saya%20tertarik%20paket%20Profesional" class="btn btn-primary" target="_blank">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="container cta-content">
+            <h2>Siap Mengubah Bisnis Anda Menjadi Lebih Profesional?</h2>
+            <p>Jangan tunda pertumbuhan bisnis Anda lagi. Konsultasikan konsep website impian Anda sekarang dengan pakar IT dari Wana Digital gratis!</p>
+            <a href="https://wa.me/6283180296984?text=Halo%20Wana%20Digital,%20saya%20ingin%20konsultasi%20pembuatan%20website" class="btn btn-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i> Diskusikan Projek Via WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="kontak">
+        <div class="container footer-grid">
+            <div class="footer-about">
+                <h3><a href="https://websitepro.my.id">Wana <span>Digital</span></a></h3>
+                <p>"Dari Lokal ke Profesional." Penyedia solusi konsultan teknologi tepercaya di Indonesia yang fokus melayani pembuatan website berkualitas berorientasi hasil nyata bagi kelangsungan usaha Anda.</p>
+                <div class="social-icons">
+                    <a href="https://www.facebook.com/umroh.sunnah.73"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/umrohsunnah.official"><i class="fab fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/umroh-sunnah"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Navigasi</h4>
+                <ul>
+                    <li><a href="https://websitepro.my.id">Home</a></li>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#portofolio">Portofolio</a></li>
+                    <li><a href="#harga">Harga/Paket</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Kontak & Alamat</h4>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Wana Digital, Jakarta, Indonesia</li>
+                    <li><i class="fas fa-phone-alt"></i> <a href="tel:083180296984" style="color:#94A3B8;">0831 8029 6984</a></li>
+                    <li><i class="fas fa-envelope"></i> info@websitepro.my.id</li>
+                    <li><i class="fas fa-globe"></i> websitepro.my.id</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Wana Digital. All Rights Reserved. Developed by websitepro.my.id</p>
+        </div>
+    </footer>
+
+    <!-- INTERACTION SCRIPT (Pure JS) -->
+    <script>
+        // Fitur Responsif Menu Toggle Mobile
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = menuToggle.querySelector('i');
+            if(navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Menutup menu mobile otomatis jika salah satu link diklik
+        const navLinks = document.querySelectorAll('.nav-link');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                menuToggle.querySelector('i').classList.remove('fa-times');
+                menuToggle.querySelector('i').classList.add('fa-bars');
+                
+                // Set active class ke link terpilih
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
