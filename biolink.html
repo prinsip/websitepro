@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wana Digital - Dari Lokal ke Profesional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="https://websitepro.my.id/assets/images/favicon.png" type="image/png" />
+    <style>
+        :root {
+            --dark-blue: #1a237e;
+            --blue: #283593;
+            --light-blue: #3f51b5;
+            --cyan: #00bcd4;
+            --black: #1a1a1a;
+            --white: #ffffff;
+            --gray: #f5f5f5;
+            --light-gray: #e0e0e0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--black);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo img {
+            height: 40px;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark-blue);
+        }
+
+        .logo p {
+            font-size: 12px;
+            color: var(--light-blue);
+            font-weight: 500;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--light-blue);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 150px 0 100px;
+            background: linear-gradient(135deg, var(--dark-blue), var(--blue));
+            color: var(--white);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, var(--light-blue), var(--cyan));
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card .icon {
+            font-size: 50px;
+            color: var(--light-blue);
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Portfolio Section */
+        .portfolio {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .portfolio-item {
+            background: var(--gray);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .portfolio-item-content {
+            padding: 20px;
+        }
+
+        .portfolio-item h3 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 5px;
+        }
+
+        .portfolio-item p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--dark-blue), var(--blue));
+            color: var(--white);
+        }
+
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .testimonial {
+            display: none;
+            padding: 20px;
+        }
+
+        .testimonial.active {
+            display: block;
+        }
+
+        .testimonial-content {
+            font-size: 20px;
+            font-style: italic;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .testimonial-author img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .testimonial-author-info h4 {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .testimonial-author-info p {
+            opacity: 0.8;
+        }
+
+        .slider-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .slider-btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.3);
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .slider-btn.active {
+            background-color: var(--cyan);
+        }
+
+        /* Pricing Section */
+        .pricing {
+            padding: 100px 0;
+            background-color: var(--gray);
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .pricing-card.popular {
+            border: 2px solid var(--light-blue);
+        }
+
+        .pricing-card.popular .popular-badge {
+            position: absolute;
+            top: -15px;
+            right: 20px;
+            background: var(--light-blue);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-card h3 {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--dark-blue);
+            margin-bottom: 10px;
+        }
+
+        .pricing-card .price {
+            font-size: 48px;
+            font-weight: 700;
+            color: var(--light-blue);
+            margin-bottom: 5px;
+        }
+
+        .pricing-card .price span {
+            font-size: 16px;
+            font-weight: 400;
+            color: #777;
+        }
+
+        .pricing-card .features {
+            list-style: none;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        .pricing-card .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .pricing-card .features li::before {
+            content: '✓';
+            color: var(--light-blue);
+            font-weight: bold;
+        }
+
+        .pricing-card .cta-button {
+            background: var(--white);
+            color: var(--light-blue);
+            border: 2px solid var(--light-blue);
+        }
+
+        .pricing-card.popular .cta-button {
+            background: linear-gradient(45deg, var(--light-blue), var(--cyan));
+            color: var(--white);
+            border: none;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            height: 40px;
+        }
+
+        .footer-logo h3 {
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .footer-logo p {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+
+        .footer-column h4 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--cyan);
+        }
+
+        .footer-column p, .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: var(--cyan);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: var(--cyan);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #ccc;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: left 0.3s ease;
+                z-index: 999;
+            }
+
+            nav.active {
+                left: 0;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero h2 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section-title h2 {
+                font-size: 28px;
+            }
+
+            .service-card, .pricing-card {
+                padding: 30px 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-fadeInUp {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://websitepro.my.id/assets/images/logo/logo.png" alt="Wana Digital Logo">
+                <div>
+                    <h1>Wana Digital</h1>
+                    <p>Dari lokal ke Profesional</p>
+                </div>
+            </div>
+            <nav id="nav">
+                <ul>
+                    <li><a href="#layanan">Layanan</a></li>
+                    <li><a href="#portofolio">Portofolio</a></li>
+                    <li><a href="#testimoni">Testimoni</a></li>
+                    <li><a href="#harga">Harga</a></li>
+                    <li><a href="#kontak">Kontak</a></li>
+                </ul>
+            </nav>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content animate-fadeInUp">
+            <h2>Ubah Bisnis Lokal Anda Menjadi Profesional dengan Website Berkualitas</h2>
+            <p>Kami membantu bisnis lokal di Indonesia untuk bersaing di pasar digital dengan website yang dirancang untuk SEO, AEO, dan GEO yang optimal.</p>
+            <a href="#kontak" class="cta-button">Konsultasi Gratis</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="layanan">
+        <div class="container">
+            <div class="section-title animate-fadeInUp">
+                <h2>Layanan Kami</h2>
+                <p>Kami menyediakan solusi website yang tidak hanya menarik secara visual, tetapi juga dioptimalkan untuk mesin pencari dan pengalaman pengguna.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-fadeInUp delay-1">
+                    <div class="icon">🎨</div>
+                    <h3>Website Design</h3>
+                    <p>Desain website modern dan responsif yang mencerminkan identitas brand Anda. Kami fokus pada user experience (UX) dan user interface (UI) yang intuitif untuk meningkatkan konversi.</p>
+                </div>
+                <div class="service-card animate-fadeInUp delay-2">
+                    <div class="icon">🔍</div>
+                    <h3>SEO & AEO Optimization</h3>
+                    <p>Optimasi website untuk mesin pencari (SEO) dan answer engine (AEO) agar bisnis Anda mudah ditemukan oleh pelanggan lokal. Kami juga mengoptimalkan untuk pencarian suara dan pertanyaan langsung.</p>
+                </div>
+                <div class="service-card animate-fadeInUp delay-3">
+                    <div class="icon">📍</div>
+                    <h3>Maintenance & Support</h3>
+                    <p>Pemeliharaan rutin dan dukungan teknis untuk memastikan website Anda selalu up-to-date, aman, dan berkinerja optimal. Termasuk optimasi GEO untuk target lokal.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portofolio">
+        <div class="container">
+            <div class="section-title animate-fadeInUp">
+                <h2>Portofolio Kami</h2>
+                <p>Berikut beberapa proyek website yang telah kami kerjakan untuk klien di berbagai industri.</p>
+            </div>
+            <div class="portfolio-grid">
+                <div class="portfolio-item animate-fadeInUp delay-1">
+                    <img src="https://placehold.co/400x200/3f51b5/ffffff?text=MontirMotor.com" alt="MontirMotor.com">
+                    <div class="portfolio-item-content">
+                        <h3>montirmotor.com</h3>
+                        <p>Platform pencarian bengkel motor terdekat dengan fitur GEO dan ulasan pengguna.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-fadeInUp delay-2">
+                    <img src="https://placehold.co/400x200/00bcd4/ffffff?text=TravelUmrohPlus" alt="TravelUmrohPlus.com">
+                    <div class="portfolio-item-content">
+                        <h3>travelumrohplus.com</h3>
+                        <p>Website travel umroh dengan sistem booking online dan integrasi pembayaran.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-fadeInUp delay-3">
+                    <img src="https://placehold.co/400x200/283593/ffffff?text=FalahEducation" alt="FalahEducation.web.id">
+                    <div class="portfolio-item-content">
+                        <h3>falaheducation.web.id</h3>
+                        <p>Website lembaga pendidikan dengan sistem pendaftaran online dan manajemen siswa.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-fadeInUp delay-1">
+                    <img src="https://placehold.co/400x200/1a237e/ffffff?text=Surgalaundry" alt="Surgalaundry.com">
+                    <div class="portfolio-item-content">
+                        <h3>surgalaundry.com</h3>
+                        <p>Website laundry kiloan dengan fitur pemesanan online dan pelacakan order.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-fadeInUp delay-2">
+                    <img src="https://placehold.co/400x200/3f51b5/ffffff?text=CoffeeShop" alt="ChefsnCoffee.web.id">
+                    <div class="portfolio-item-content">
+                        <h3>chefsncoffee.web.id</h3>
+                        <p>Website kafe dengan menu digital dan sistem reservasi meja online.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item animate-fadeInUp delay-2">
+                    <img src="https://placehold.co/400x200/1a237e/ffffff?text=Finance" alt="Szakat.id">
+                    <div class="portfolio-item-content">
+                        <h3>szakat.id</h3>
+                        <p>Aplikasi akuntansi berbasis web untuk layanan zakat infaq dan sadaqah.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials" id="testimoni">
+        <div class="container">
+            <div class="section-title animate-fadeInUp">
+                <h2 style="color:white">Apa Kata Klien Kami</h2>
+                <p style="color:white">Kami bangga telah membantu banyak bisnis lokal berkembang melalui website profesional.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial active">
+                    <div class="testimonial-content">
+                        "Website yang dibuat oleh Wana Digital sangat membantu bisnis laundry kami. Pelanggan bisa memesan online dan kami melihat peningkatan omset hingga 40% dalam 3 bulan pertama."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/60x60/000000/FFF?text=Surgalaundry" alt="W - Surgalaundry">
+                        <div class="testimonial-author-info">
+                            <h4>Pemilik</h4>
+                            <p style="color:white">Surgalaundry.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Tim Wana Digital sangat profesional dan memahami kebutuhan bisnis lokal. Website travel umroh kami sekarang lebih mudah ditemukan di Google dan booking meningkat signifikan."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/60x60/000000/FFF?text=TravelUmrohPlus" alt="P - Travel Umroh Plus">
+                        <div class="testimonial-author-info">
+                            <h4>CEO</h4>
+                            <p style="color:white">TravelUmrohPlus.com</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Desain website yang modern dan responsif membuat lembaga pendidikan kami terlihat lebih profesional. Orang tua siswa sangat puas dengan sistem informasi yang diberikan."
+                    </div>
+                    <div class="testimonial-author">
+                        <img src="https://placehold.co/60x60/000000/FFF?text=FalahEducation" alt="Z - Falah Education">
+                        <div class="testimonial-author-info">
+                            <h4>Founder</h4>
+                            <p style="color:white">FalahEducation.web.id</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="slider-controls">
+                    <button class="slider-btn active" onclick="showTestimonial(0)"></button>
+                    <button class="slider-btn" onclick="showTestimonial(1)"></button>
+                    <button class="slider-btn" onclick="showTestimonial(2)"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="harga">
+        <div class="container">
+            <div class="section-title animate-fadeInUp">
+                <h2>Paket Layanan</h2>
+                <p>Pilih paket yang sesuai dengan kebutuhan bisnis Anda. Semua paket sudah termasuk optimasi SEO dasar.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card animate-fadeInUp delay-1">
+                    <h3>Basic</h3>
+                    <div class="price">Rp 1.000<span>.000</span></div>
+                    <ul class="features">
+                        <li>5 Halaman Website</li>
+                        <li>Desain Responsif</li>
+                        <li>Optimasi SEO Dasar</li>
+                        <li>Domain & Hosting 1 Tahun</li>
+                        <li>Pemeliharaan 3 Bulan</li>
+                    </ul>
+                    <a href="#kontak" class="cta-button">Pilih Paket</a>
+                </div>
+                <div class="pricing-card popular animate-fadeInUp delay-2">
+                    <div class="popular-badge">Paling Populer</div>
+                    <h3>Professional</h3>
+                    <div class="price">Rp 5.000<span>.000</span></div>
+                    <ul class="features">
+                        <li>10 Halaman Website</li>
+                        <li>Desain Kustom</li>
+                        <li>Optimasi SEO & AEO</li>
+                        <li>Domain & Hosting 1 Tahun</li>
+                        <li>Pemeliharaan 6 Bulan</li>
+                        <li>Integrasi Pembayaran</li>
+                        <li>Fitur GEO (Lokal SEO)</li>
+                    </ul>
+                    <a href="#kontak" class="cta-button">Pilih Paket</a>
+                </div>
+                <div class="pricing-card animate-fadeInUp delay-3">
+                    <h3>Enterprise</h3>
+                    <div class="price">Rp 10.000<span>.000</span></div>
+                    <ul class="features">
+                        <li>Website Tanpa Batas Halaman</li>
+                        <li>Desain Kustom Premium</li>
+                        <li>Optimasi SEO, AEO & GEO</li>
+                        <li>Domain & Hosting 2 Tahun</li>
+                        <li>Pemeliharaan 1 Tahun</li>
+                        <li>Integrasi Sistem CRM</li>
+                        <li>Fitur E-commerce Lengkap</li>
+                        <li>Dukungan Prioritas</li>
+                    </ul>
+                    <a href="#kontak" class="cta-button">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="kontak">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <img src="https://websitepro.my.id/assets/images/logo/logo.png" alt="Wana Digital Logo">
+                        <div>
+                            <a href="https://websitepro.my.id"><h3>Wana Digital</h3></a>
+                            <p>Dari lokal ke Profesional</p>
+                        </div>
+                    </div>
+                    <p>Kami membantu bisnis lokal di Indonesia untuk bersaing di pasar digital dengan website profesional yang dioptimalkan untuk SEO, AEO, dan GEO.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/umroh.sunnah.73" aria-label="Facebook">📘</a>
+                        <a href="https://www.instagram.com/umrohsunnah.official" aria-label="Instagram">📷</a>
+                        <a href="https://www.linkedin.com/in/umroh-sunnah" aria-label="LinkedIn">💼</a>
+                        <a href="https://wa.me/6285178985768" aria-label="WhatsApp">💬</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Layanan</h4>
+                    <ul>
+                        <li><a href="#layanan">Website Design</a></li>
+                        <li><a href="#layanan">SEO Optimization</a></li>
+                        <li><a href="#layanan">Maintenance & Support</a></li>
+                        <li><a href="#portofolio">Portofolio</a></li>
+                        <li><a href="#harga">Paket Harga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Kontak</h4>
+                    <p>📞 <a href="tel:083180296984">0831-8029-6984</a></p>
+                    <p>✉️ <a href="mailto:hello@websitepro.my.id">hello@websitepro.my.id</a></p>
+                    <p>📍 Jakarta, Indonesia</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2026 Wana Digital. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const nav = document.getElementById('nav');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+        });
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.getElementById('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Testimonial Slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const sliderBtns = document.querySelectorAll('.slider-btn');
+
+        function showTestimonial(index) {
+            testimonials.forEach((testimonial, i) => {
+                testimonial.classList.remove('active');
+                sliderBtns[i].classList.remove('active');
+            });
+
+            testimonials[index].classList.add('active');
+            sliderBtns[index].classList.add('active');
+            currentTestimonial = index;
+        }
+
+        function nextTestimonial() {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            showTestimonial(currentTestimonial);
+        }
+
+        // Auto slide testimonials every 5 seconds
+        setInterval(nextTestimonial, 5000);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+
+                    // Close mobile menu if open
+                    nav.classList.remove('active');
+                }
+            });
+        });
+
+        // Animate elements on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.animate-fadeInUp');
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (elementPosition < windowHeight - 100) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+
+        // Set initial state for animated elements
+        document.querySelectorAll('.animate-fadeInUp').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+        });
+
+        window.addEventListener('scroll', animateOnScroll);
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
